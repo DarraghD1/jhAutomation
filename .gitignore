@@ -1,0 +1,4 @@
+virt/
+__pycache__/
+*.pyc
+.env
