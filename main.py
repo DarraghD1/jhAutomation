@@ -69,7 +69,7 @@ def process_jobs(req: ProcessRequest) -> list[RankedJob]:
     {listing_text}
  
     Return ONLY a JSON array (no markdown, no preamble) of the postings that are
-    genuinely relevant graduate/early-career software roles. For each, include:
+    genuinely relevant graduate/early-career software roles (BE AWARE OF YEARS OF EXPERIENCE REQUIREMENTS). For each, include:
     "index" (the [N] from above), "reason" (one short sentence on why it fits).
     Exclude anything senior/unrelated (e.g. senior-only roles, non-software roles).
     If none are relevant, return an empty array []."""
