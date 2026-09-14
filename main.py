@@ -8,7 +8,6 @@ import json
  
 app = FastAPI()
 client = anthropic.Anthropic(api_key=os.getenv("CLAUDE_API_KEY"))
-EXPECTED_KEY = os.getenv("N8N_SHARED_SECRET")
  
  
 class JobPosting(BaseModel):
@@ -45,9 +44,7 @@ def dedupe(postings: list[JobPosting]) -> list[JobPosting]:
  
  
 @app.post("/process-jobs")
-def process_jobs(req: ProcessRequest, x_api_key: str = Header(None)) -> list[RankedJob]:
-    if x_api_key != EXPECTED_KEY:
-        raise HTTPException(status_code=401, detail="Unauthorized")
+def process_jobs(req: ProcessRequest) -> list[RankedJob]:
  
     unique_postings = dedupe(req.postings)
  
