@@ -54,7 +54,7 @@ def process_jobs(req: ProcessRequest) -> list[RankedJob]:
     # build a compact listing for prompt
     listing_text = "\n".join(
         f"[{i}] {j.title} - {j.company} ({j.location or 'Unkown Location'}),"
-        f"source: {j.source}\n  {j.description[:200] if j.description else 'No description provided.'}"
+        f"source: {j.source}\n  {j.description[:800] if j.description else 'No description provided.'}"
         for i, j in enumerate(unique_postings)
     )
  
