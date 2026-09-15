@@ -62,17 +62,19 @@ def process_jobs(req: ProcessRequest) -> list[RankedJob]:
     student in Ireland, graduating October 2026, with experience in full-stack
     development (React Native, FastAPI, Python), an internship at Medtronic
     (software engineering, R&D), and interest in software engineering / backend /
-    ML-adjacent roles.
+    ML-adjacent roles. (BE AWARE OF YEARS OF EXPERIENCE REQUIREMENTS. IF JOB REQUIRES MORE THAN 2 YEARS OF EXPERIENCE, EXCLUDE IT).
  
     Here are today's postings:
  
     {listing_text}
  
     Return ONLY a JSON array (no markdown, no preamble) of the postings that are
-    genuinely relevant graduate/early-career software roles (BE AWARE OF YEARS OF EXPERIENCE REQUIREMENTS). For each, include:
+    genuinely relevant graduate/early-career software roles. For each, include:
     "index" (the [N] from above), "reason" (one short sentence on why it fits).
     Exclude anything senior/unrelated (e.g. senior-only roles, non-software roles).
-    If none are relevant, return an empty array []."""
+    If none are relevant, return an empty array [].
+    Exclude any posting that is not written in English or does not appear to be
+    English speaking."""
  
     response = client.messages.create(
         model="claude-sonnet-4-6",
